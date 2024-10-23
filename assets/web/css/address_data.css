@@ -1,0 +1,33 @@
+table, th, td {
+    border: 1px solid rgb(203, 200, 200);
+    border-collapse: collapse;
+  }
+  th{
+    background: #163562;
+    color: white;
+    border: none ;
+
+  }
+  table{
+    width: 100%;
+
+  }
+  th{
+    padding: 20px;
+    text-align: center;
+    /* border: 1px solid rgb(100, 96, 96) ; */
+  }
+  td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgb(210, 207, 207);
+
+  }
+  /* tr:hover {background-color: #D6EEEE;}; */
+  
+.edit-btn{
+  background-color: green;
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+}
