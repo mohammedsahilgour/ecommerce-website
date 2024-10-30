@@ -1,3 +1,24 @@
+<?php
+$address_data = json_decode(json_encode($address_data), true);
+
+    ?>
+<!-- <link href="<?php echo base_url() ?>assets/web/css/address_data.css" rel="stylesheet" type="text/css" media="all"/>
+
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="<?php echo base_url() ?>assets/web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+
+    <link href="<?php echo base_url() ?>assets/web/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+    <script src="<?php echo base_url() ?>assets/web/js/jquerymain.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/jquery-1.7.2.min.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/nav.js"></script>
+
+
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/move-top.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/easing.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/nav-hover.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'> -->
  <table id="table=data"> 
            <tr>
              <!-- <th> no.</th> -->
@@ -27,7 +48,7 @@
              <td> <?php echo $data['zipcode']?></td>
             <?php  if($data['default_value']){?>
             
-             <td class="default-address-td default-value-show"> <?php echo  "<button class='default-btn' id='default-yes-btn'> Yes </button>"?>
+             <td class="default-address-td default-value-show"> <?php echo  "<button class='default-btn' id='default-yes-btn'> Default </button>"?>
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
                 <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
@@ -72,3 +93,7 @@
           
              <?php } ?>
          </table>
+         <link href="<?php echo base_url()?>assets/web/css/flexslider.css" rel='stylesheet' type='text/css' />
+<script defer src="<?php echo base_url()?>assets/web/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/about.js"></script>
+         

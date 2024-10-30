@@ -363,21 +363,35 @@ class Web extends CI_Controller
 
     public function save_order()
     {
-        $data['payment_type'] = $this->input->post('payment');
+        $data['	payment_type']= $this->input->post('payment');
+       $customer_id  = $this->input->post('cus_id');
+       print_r($data);
+       print_r($customer_id);
 
+       die;
+
+  
         $this->form_validation->set_rules('payment', 'Payment', 'trim|required');
 
         if ($this->form_validation->run() == true) {
             $payment_id           = $this->web_model->save_payment_info($data);
             $odata                = array();
-            $odata['customer_id'] = $this->session->userdata('customer_id');
-            $odata['shipping_id'] = $this->session->userdata('shipping_id');
+          
+            $odata['customer_id'] =   $customer_id ;
+         
+        //    print_r(  $odata['customer_id']);
+        //    die;
+            $odata['shipping_id'] = 13;
+            // $this->session->userdata('shipping_id')
             $odata['payment_id']  = $payment_id;
+          
             $tax                  = ($this->cart->total() * 15) / 100;
             $odata['order_total'] = $tax + $this->cart->total();
-
+          
+           
             $order_id = $this->web_model->save_order_info($odata);
-
+           
+           
             $oddata = array();
 
             $myoddata = $this->cart->contents();
@@ -477,8 +491,9 @@ class Web extends CI_Controller
       
     public function Address(){
         $get_country_data= $this->web_model->get_country_data();
-        // print_r( $get_country_data);
-        // die;
+     $id= $this->session->userdata('customer_id');
+    //  print_r($id);
+    //  die;
         $this->load->view('web/inc/header');
         $this->load->view('web/pages/customeraddress',['get_country_data'=> $get_country_data]);
         $this->load->view('web/inc/footer');
@@ -536,12 +551,20 @@ class Web extends CI_Controller
     }
 
     public function Addresslist(){
-   
-    $address_data = $this->web_model->get_address_data();
-    // print_r($address_data);
-    // die;
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+         print_r( $page );
+  
+ 
+       
+    $num_rows= $this->web_model->num_rows();
+    $limit = 3;
+    $total_page= ceil( $num_rows/$limit);
+    $offset = ($page -1) * $limit;
+    $address_data= $this->web_model->get_total_rows($limit ,$offset);
+    $serial_num = $limit * ($page -1 ) +1;
+
     $this->load->view('web/inc/header');
-    $this->load->view('web/pages/address_data',['address_data'=>$address_data]);
+    $this->load->view('web/pages/address_data',['address_data'=>$address_data ,"total_page"=> $total_page,'serial_num'=>$serial_num]);
     $this->load->view('web/inc/footer');
     }
     
@@ -621,20 +644,89 @@ class Web extends CI_Controller
     }
 
     public function updatedefaultdata(){
-    //   echo "get url with ajax ";
+   
       $id = $_POST['name'];
 
-       $updatedefaultdata = $this->web_model->update_default_data($id);
-    
-    //    if ($updatedefaultdata) {
-    //     // $this->load->view('pages/address_data');    
-    //     $this->load->view('pages/address_data', $updatedefaultdata);
-    //     } 
+    $updatedefaultdata = $this->web_model->update_default_data($id);
     $address_data = $this->web_model->get_address_data();
-    // print_r($address_data);
-    // die;
-   $this->load->view('web/pages/address_list_data',['address_data'=>$address_data]);
+    
+    $this->load->view('web/pages/address_list_data',['address_data'=>$address_data]);
  
    
+    }
+
+    public function myprofile(){
+        $get_country_data= $this->web_model->get_country_data();
+        $myprofile = $this->web_model->get_myprofile_data();
+        $this->load->view('web/inc/header');
+        $this->load->view('web/pages/myprofile',['get_country_data'=> $get_country_data,'myprofile'=> $myprofile]);
+        $this->load->view('web/inc/footer');
+    }
+
+    public function updatemyprofile(){
+       
+        
+        $data['name'] = $this->input->post('name');
+        $data['Password'] = $this->input->post('Password');
+        $data['City'] = $this->input->post('City');
+        $data['number'] = $this->input->post('number');
+        $data['email'] = $this->input->post('email');
+        $data['address'] = $this->input->post('address');
+        $data['country'] = $this->input->post('country');
+        $data['zipcode'] = $this->input->post('zipcode');
+
+        $myprofile = $this->web_model->update_myprofile_data($data);
+        if($myprofile== true){
+        redirect('Web/myprofile');    
+           
+        }else{
+            echo "not";
+        }
+
+    }
+
+    public function checkpass(){
+
+        $this->load->view('web/inc/header');
+        $this->load->view('web/pages/checkpass');
+        $this->load->view('web/inc/footer');
+    }
+
+    public function checkpassforpassword(){
+      $data['password'] = $this->input->post('password');
+  
+       $check_pass_for_pass = $this->web_model->check_pass_for_pass($data);
+   
+       if($check_pass_for_pass == true){
+        $this->load->view('web/inc/header');
+        $this->load->view('web/pages/changepassword');
+        $this->load->view('web/inc/footer');
+        
+       }else{
+      
+        $this->session->set_flashdata('message', 'email is not esixt');
+        redirect('web/checkpass');
+       }
+    }
+
+    public function changepassword(){
+
+        $newpassword= $this->input->post('newpass');
+       $confirmpassword = $this->input->post('repeatpass');
+       if($newpassword ==  $confirmpassword){
+     
+
+       $this->web_model->update_change_pass($confirmpassword);
+       $this->load->view('web/inc/header');
+       $this->load->view('web/pages/checkpass');
+       $this->load->view('web/inc/footer');
+
+       }else{
+        $this->load->view('web/inc/header');
+        $this->load->view('web/pages/changepassword');
+        $this->load->view('web/inc/footer');
+       }
+
+      
     }
 }

@@ -1,0 +1,70 @@
+html,body { height: 100%; }
+
+body{
+	/* display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-ms-flex-align: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	background-color: #f5f5f5; */
+}
+/* 
+form{
+	padding-top: 10px;
+	font-size: 13px;
+	margin-top: 30px;
+} */
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 13px;
+}
+
+.login-form{ 
+	width:444px;
+	margin:20px;
+    margin-left: 35%;
+    height: 340px;
+    margin-bottom: 108px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+span{
+	font-size:14px;
+}
+
+.submit-btn{
+	margin-top:20px;
+}
+.form-control-sm {
+    min-height: calc(1.5em + .9rem + calc(var(--bs-border-width)* 2));
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: var(--bs-border-radius-sm);
+}
+.form-group{
+
+padding-top: 40px;
+
+}
+.change-pass-btn{
+    width: 137px;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #6366f1;;
+    color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-left: 127px;
+border: 1px solid rgb(222, 214, 214);
+
+}

@@ -1,0 +1,12 @@
+.form-gap {
+    padding-top: 70px;
+}
+ .panel-default {
+    border-color: #ddd;
+    width: 130%;
+    margin-left: -96px;
+}
+.form-control{
+    width: 310px;
+     /* padding-left: 22px; */
+} 

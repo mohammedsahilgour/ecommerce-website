@@ -75,7 +75,10 @@
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 <link href="<?php echo base_url()?>assets/web/css/flexslider.css" rel='stylesheet' type='text/css' />
 <script defer src="<?php echo base_url()?>assets/web/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/menubar.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url() ?>assets/web/js/about.js"></script>
+<!-- <script src="cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> -->
 
 <script type="text/javascript">
     $(window).load(function () {

@@ -1,0 +1,400 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;800;900&display=swap');
+
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 0.3s;
+}
+  
+*{
+  
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  outline:none;
+
+  list-style:none;
+  font-family: 'Mulish', sans-serif;
+
+  
+}
+
+body{
+  width:100%;
+   background:#F2F2F2;
+
+    /* height:100vh;
+  display:flex;
+align-items:center;
+  justify-content:center; */
+  
+}
+
+.main_card{
+    transform:scale(0.9);
+  width:649px;
+height:625px;
+border-radius:10px;
+  border: 1px solid #EAEAEA;
+  margin-top: -27px;
+  box-shadow: 0 25px 30px -20px #00000010; 
+  box-shadow: 0px 25px 30px -20px rgba(0, 0, 0, 0.0959934);
+
+  margin-left: 192px;
+  background:#fff;
+
+  
+  h3{
+    padding-top:115px;
+    margin-left:90px;
+    font-family: Mulish;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 28px;
+/* identical to box height */
+color: #1A1B38;
+
+  }
+  .select-cards{
+    
+    width:469px;
+    height:auto;
+ 
+    margin-left:90px;
+    margin-top:65px;
+    
+    .select{
+      width:100%;
+      height:95px;
+      background: #FFFFFF;
+border: 1px solid #EAEAEA;
+border-radius: 5px;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      cursor:pointer;
+      transition:0.3s;
+      
+      .titles{
+          margin-left:15px;
+        
+        h4{
+          font-family: Mulish;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #1A1B38;
+        }
+        
+        h5{
+          
+          font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #1A1B38;
+          margin-top:1px;
+          
+          
+        }
+        }
+      
+      
+      .check-box{
+        
+        width:33px;
+        height:33px;
+        background: #FFFFFF;
+        border: 2px solid #BCBCBC;
+        border-radius:50%;
+        margin-left:25px;
+        display:flex;
+        align-items:center;
+        justify-content: center; 
+        transition:0.3s;
+        
+        .check-dot{
+          
+          width:15px;
+          height:15px;
+          background:#fff;
+          border-radius:50%;
+          transition:0.3s;
+
+          transform:scale(0);
+          
+          
+        }
+        
+      
+      }
+      
+      &[data-selected="true"] {
+    /* border-color:#000000; */
+        
+        
+        .check-box{
+        
+        
+          background:#000000;
+          border-color:#000;
+          background:#1d3cc6;
+          border-color:#1d3cc6;
+        
+        
+          .check-dot{
+            width:15px;
+          height:15px;
+             transform:scale(1);
+          }
+ 
+      }
+        
+        
+        
+}
+    }
+  }
+  
+  
+  .select-btn{
+    width:469px;
+    height:95px;
+    background: #1d3cc6;
+border-radius: 5px;
+    margin-left:90px;
+    margin-top:22px;
+    
+    font-family: Mulish;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 23px;
+    cursor:pointer;
+    border: none;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+  }
+}
+
+
+
+.container{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  background:#00000020;
+  mix-blend-mode: normal;
+backdrop-filter: blur(10px);
+  display:none;
+  
+  
+  .donate-modal{
+  
+  width:444px;
+  height:601px;
+  background: #FFFFFF;
+ 
+border-radius: 10px;
+transform:scale(0.9);
+     border: 1px solid #EAEAEA;
+   
+    
+    
+    .header{
+      width:100%;
+      height:80px;
+      
+      .exit-btn{
+        float:right;
+        width:50px;
+        height:50px;
+        background: #F1F1F1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:50%;
+        margin-top:20px;
+        margin-right:20px;
+        margin-bottom:10px;
+        cursor:pointer;
+        
+      }
+    }
+    
+    
+    h3{
+      text-align:center;
+      font-family: Mulish;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 28px;
+/* identical to box height */
+
+
+color: #1A1B38;
+
+      
+    }
+    
+    h4{
+      text-align:center;
+      font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #1A1B38;
+      margin-top:15px;
+    }
+    
+    
+    .card_box{
+      
+      background: #FFFFFF;
+border: 1px solid #EAEAEA;
+border-radius: 5px;
+      
+      width:354px;
+      height:108px;
+      margin-left:45px;
+      margin-top:35px;
+      display:flex;
+      justify-content:space-between;
+      
+      
+      .left{
+        
+        svg{
+          margin-left:20px;
+          margin-top:10px;
+        }
+        
+        .number{
+          display:block;
+          margin-left:25px;
+        }
+      }
+      
+      .right{
+        
+        .date{
+          font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #1A1B38;
+          margin-top:60px;
+          margin-right:26px;
+          display:block;
+        }
+      }
+    }
+    
+    .new-card{
+      font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+text-decoration-line: underline;
+      display:block;
+      
+
+color: #1A1B38;
+      margin-left:48px;
+      margin-top:15px;
+
+    }
+    
+    .submit-btn{
+      
+       width:354px;
+    height:95px;
+    background: #1d3cc6;
+border-radius: 5px;
+    margin-left:45px;
+    margin-top:22px;
+    
+    font-family: Mulish;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 23px;
+    cursor:pointer;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+      margin-top:44px;
+    }
+    
+    
+    p{
+      
+      text-align:center;
+      width:284px;
+      margin-left:90px;
+      margin-top:25px;
+      
+      font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+      
+      a{
+        text-decoration:underline;
+        cursor:pointer;
+        
+       
+          color:#1d3cc6;
+     
+      }
+
+    }
+}
+  
+  
+}
+.payment-pay-btn{
+  background-color: #1d3cc6;
+  color: white;
+  border: none;
+}

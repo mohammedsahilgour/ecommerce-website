@@ -125,13 +125,20 @@ class Web_Model extends CI_Model
 
     public function save_payment_info($data)
     {
+      // print_r($data);
+ 
+      
+      
+        
         $this->db->insert('tbl_payment', $data);
         return $this->db->insert_id();
     }
 
-    public function save_order_info($data)
+    public function save_order_info($odata)
+
     {
-        $this->db->insert('tbl_order', $data);
+     
+        $this->db->insert('tbl_order', $odata);
         return $this->db->insert_id();
     }
 
@@ -215,6 +222,8 @@ class Web_Model extends CI_Model
         $this->db->select("*");
         $this->db->from("tbl_address");
         $this->db->where('user_id', $id);
+        $this->db->limit(3);
+
         $query = $this->db->get();
        return   $query->result_array();
       
@@ -324,7 +333,97 @@ class Web_Model extends CI_Model
    $this->db->update("tbl_address",$dataupdate);
 
     return $this->db->affected_rows();
+  }
+  public function num_rows(){
+    $id= $this->session->userdata('customer_id');
+    // print_r($id);
+    // die;
+    $q=$this->db->select()
+                ->from("tbl_address")
+                ->where(['user_id'=>$id])
+                ->get();
+                return $q->num_rows();
+                // die;
 
+  }
+
+  public function get_total_rows($limit ,$offset){
+    $id= $this->session->userdata('customer_id');
+    $q=$this->db->select("*")
+                ->from("tbl_address")
+                ->where(['user_id'=>$id])
+                ->limit($limit ,$offset)
+                ->get();
+                return $q->result();
+  }
+  public function get_page_data($limit, $offset){
+    $id= $this->session->userdata('customer_id');
+    $q=$this->db->select("*")
+                ->from("tbl_address")
+                ->where(['user_id'=>$id])
+                ->limit(2,$offset)
+                ->get();
+                return  $q->result();
+                // print_r($check);
+                // die;
+  }
+  public function get_myprofile_data(){
+    $id= $this->session->userdata('customer_id');
+
+    $this->db->select('*');
+    $this->db->from('tbl_customer');
+    $this->db->where('customer_id ', $id);
+    $query = $this->db->get();
+    return $query->result_array();
+  }
+
+  public function update_myprofile_data($data){
+    $id= $this->session->userdata('customer_id');
+    $profiledata=[
+
+        'customer_name' => $data['name'],
+        'customer_email' => $data['email'],
+        'customer_password' => $data['Password'],
+        'customer_address' => $data['address'],
+        'customer_city' => $data['City'],
+        'customer_zipcode' => $data['zipcode'],
+        'customer_phone' => $data['number'],
+        'customer_country' => $data['country']
+    ];
+    $this->db->where('customer_id ',$id);
+
+    $this->db->update('tbl_customer', $profiledata);
+    
+    return true ;
+
+  }
+
+  public function check_pass_for_pass($data){
+  
+ 
+  
+    $this->db->select('*');
+    $this->db->from('tbl_customer');
+    $this->db->where('customer_password',$data['password']);
+    $info = $this->db->get();
+    return $info->row();
+  }
+
+  public function update_change_pass($confirmpassword){
+    $id= $this->session->userdata('customer_id');
+   
+    print_r($id);
+    
+
+    $data=[
+
+      'customer_password' => $confirmpassword
+    ];
+
+    $this->db->where('customer_id ', $id);
+    $this->db->update('tbl_customer',$data);
+ 
+    return  true;
 
   }
 }

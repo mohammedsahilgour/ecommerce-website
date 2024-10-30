@@ -17,7 +17,28 @@ $route['deleteadressdata']             = 'Web/deleteadressdata';
 $route['updatedefaultdata']             = 'Web/updatedefaultdata';
 
 
+// pagiinationdata
+$route['getpagedata']             = 'Web/getpagedata';
+
+// my Profile
+$route['myprofile']             = 'Web/myprofile';
+
+
+// myprofileroute
+$route['updatemyprofile']             = 'Web/updatemyprofile';
+
+// changepassword
+$route['checkpass']             = 'Web/checkpass';
+
+// checkemailforpassword
+$route['checkpassforpassword']             = 'Web/checkpassforpassword';
+
+// changepassword
+$route['changepassword']             = 'Web/changepassword';
+
+
 //Web Route
+
 
 $route['product']             = 'web/product';
 $route['single/(:num)']       = 'web/single/$1';
